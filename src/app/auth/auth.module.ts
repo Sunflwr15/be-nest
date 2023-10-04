@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwt_config } from 'src/config/jwt.config';
 import { JwtAccessTokenStrategy } from './jwtAccessToken.strategy';
 import { JwtRefreshTokenStrategy } from './jwtRefreshToken.strategy';
+import { MailModule } from '../mail/mail.module';
 
 
 @Module({
@@ -19,6 +20,7 @@ import { JwtRefreshTokenStrategy } from './jwtRefreshToken.strategy';
       session: false,
     }),
     JwtModule.register({}),
+    MailModule
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtAccessTokenStrategy, JwtRefreshTokenStrategy],
